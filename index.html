@@ -51,6 +51,7 @@ section>.wrap>h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:2rem}
 .note{border:2px dashed var(--mute);padding:.9rem 1.1rem;max-width:40rem;font-size:.98rem}
 .band{background:var(--accent);color:#17212b;border-top:4px solid #17212b}
 .band h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:1.2rem}
+details{border-bottom:1px solid var(--line);padding:1rem 0;max-width:46rem}summary{font-weight:700;cursor:pointer;font-size:1.1rem}details p{color:var(--mute);margin:.6rem 0 0}
 footer{padding:1.5rem 0 2.5rem;color:var(--mute);font-size:.95rem}
 @media(max-width:52rem){.hero,.feat{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr;gap:1.8rem 0}nav ul li:not(:last-child){display:none}.engines{grid-template-columns:1fr}}
 @media(max-width:30rem){.steps{grid-template-columns:1fr}}
@@ -106,6 +107,12 @@ footer{padding:1.5rem 0 2.5rem;color:var(--mute);font-size:.95rem}
 <ul class="engines"><li>GM LS1 5.7L<small>1997 to 2004, V8</small></li><li>Honda B16 and B18<small>1990 to 2001, inline 4</small></li><li>Toyota 2JZ-GE 3.0L<small>1991 to 2005, inline 6</small></li><li>Chevy Small Block 350<small>1967 to 2002, V8</small></li></ul>
 <a class="btn line" href="app.html#/contribute">Add an engine</a></div></section>
 
+<section id="faq"><div class="wrap"><h2>Questions</h2>
+<details><summary>Is it free?</summary><p>Yes. Your projects and photos stay on your own device.</p></details>
+<details><summary>Can I trust the torque specs?</summary><p>The starter guides leave torque values to your factory service manual on purpose. Never rely on AI or a website alone for torque, timing or fluid specs.</p></details>
+<details><summary>Does it work without signal?</summary><p>The guides, photo walkthrough and your projects work offline once the app has loaded. The AI assistant and VIN lookup need internet.</p></details>
+<details><summary>My engine is not listed.</summary><p>Use Add an engine in the app. Your submission is reviewed and added for everyone.</p></details>
+</div></section>
 <section class="band"><div class="wrap"><h2>Your next teardown starts with a photo.</h2><a class="btn dark" href="app.html">Open BlockBuilder</a></div></section>
 </main>
 <footer><div class="wrap">BlockBuilder. Work safely: support the engine, relieve fuel pressure and never vent refrigerant.</div></footer>

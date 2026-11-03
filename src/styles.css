@@ -15,7 +15,7 @@ button.ghost{background:transparent;color:inherit;border-color:var(--line)}
 .bar .ghost{border-color:#17212b;min-height:2.4rem}
 button.danger{background:transparent;color:var(--bad);border-color:var(--bad)}
 :focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-input[type=search],textarea,select{width:100%;font:inherit;padding:.8rem;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px}
+input[type=search],input[type=text],textarea,select{width:100%;font:inherit;padding:.8rem;border:2px solid var(--line);background:var(--panel);color:var(--ink);border-radius:4px}
 input[type=search]{font-size:1.2rem;border-color:var(--ink)}
 .row{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0}
 .rows{list-style:none;padding:0;margin:1rem 0}
@@ -46,3 +46,4 @@ figure select{font-size:.9rem;padding:.4rem}
 .msg.me{border-left-color:var(--accent)}
 .ok{color:var(--ok);font-weight:700}
 @media(prefers-reduced-motion:no-preference){.shot{animation:in .2s ease-out}@keyframes in{from{opacity:.4}}}
+.fl{display:block;font-weight:700;margin-bottom:.2rem}
