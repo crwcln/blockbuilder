@@ -3,18 +3,111 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>BlockBuilder</title>
-<meta name="description" content="Engine teardown and rebuild guide with photo documentation and an AI assistant.">
+<title>BlockBuilder: engine teardown and rebuild guide</title>
+<meta name="description" content="Photograph every angle before you pull the engine, follow step-by-step removal guides, and ask an AI about the part in your hand.">
 <meta name="theme-color" content="#f5c518">
-<link rel="manifest" href="/manifest.webmanifest">
-<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icons/icon-192.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<link rel="stylesheet" href="/styles.css">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<style>
+:root{--bg:#e8ecef;--ink:#17212b;--mute:#5b6773;--line:#b9c2ca;--panel:#f6f8f9;--accent:#f5c518;--blue:#1f4e8c}
+@media(prefers-color-scheme:dark){:root{--bg:#161c22;--ink:#e8edf1;--mute:#97a3ae;--line:#34404b;--panel:#1f2730;--blue:#7fb0f0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0)}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3,.logo{font-family:"Arial Narrow","Roboto Condensed","Helvetica Neue",Arial,sans-serif;font-stretch:condensed;font-weight:800;line-height:1.02;margin:0}
+a{color:inherit}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+nav{background:var(--accent);color:#17212b;border-bottom:4px solid #17212b;position:sticky;top:0;z-index:5}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.6rem;padding-bottom:.6rem}
+.logo{font-size:1.7rem;text-decoration:none}
+nav ul{display:flex;gap:1.3rem;list-style:none;margin:0;padding:0;align-items:center}
+nav a{text-decoration:none;font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:3.1rem;padding:.6rem 1.4rem;font-weight:800;border:2px solid #17212b;background:var(--accent);color:#17212b;text-decoration:none;border-radius:4px}
+.btn.dark{background:#17212b;color:#fff}.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+nav .btn{min-height:2.4rem;padding:.2rem 1rem;background:#17212b;color:#fff}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:2rem;align-items:center;padding:4rem 0 3.5rem}
+.hero h1{font-size:clamp(3rem,8.5vw,6rem)}
+.hero p{font-size:1.25rem;max-width:30rem;margin:1.2rem 0 1.8rem;color:var(--mute)}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero svg{width:100%;height:auto;max-height:30rem}
+section{padding:3.5rem 0;border-top:2px solid var(--ink)}
+section>.wrap>h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:2rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;list-style:none;margin:0;padding:0;counter-reset:s}
+.steps li{counter-increment:s;padding:0 1.2rem 0 0}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2.6rem;height:2.6rem;background:var(--ink);color:var(--bg);font-weight:800;margin-bottom:.8rem}
+.steps h3{font-size:1.4rem;margin-bottom:.3rem}.steps p{margin:0;color:var(--mute);font-size:1rem}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;padding:2rem 0;border-bottom:1px solid var(--line)}
+.feat:last-child{border-bottom:0}
+.feat h3{font-size:2rem;margin-bottom:.6rem}.feat p{margin:0 0 .6rem;color:var(--mute)}
+.shots{list-style:none;margin:0;padding:0;background:var(--panel);border-left:6px solid var(--blue)}
+.shots li{padding:.55rem 1rem;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem}
+.shots li:last-child{border:0}.shots small{color:var(--mute)}
+.chat{background:var(--panel);border-left:6px solid var(--accent);padding:1rem}
+.chat p{margin:0 0 .7rem;color:var(--ink)}.chat .me{color:var(--mute)}
+.engines{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;list-style:none;margin:0 0 1.5rem;padding:0}
+.engines li{background:var(--panel);border-left:6px solid var(--accent);padding:.8rem 1rem}
+.engines small{display:block;color:var(--mute)}
+.note{border:2px dashed var(--mute);padding:.9rem 1.1rem;max-width:40rem;font-size:.98rem}
+.band{background:var(--accent);color:#17212b;border-top:4px solid #17212b}
+.band h2{font-size:clamp(2.2rem,6vw,4rem);margin-bottom:1.2rem}
+footer{padding:1.5rem 0 2.5rem;color:var(--mute);font-size:.95rem}
+@media(max-width:52rem){.hero,.feat{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr;gap:1.8rem 0}nav ul li:not(:last-child){display:none}.engines{grid-template-columns:1fr}}
+@media(max-width:30rem){.steps{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<header class="bar"><a href="#/" class="brand">BlockBuilder</a><button id="install" class="ghost" hidden>Install app</button></header>
-<main id="app" aria-live="polite"></main>
-<script src="/app.js"></script>
+<nav><div class="wrap"><a class="logo" href="#top">BlockBuilder</a>
+<ul><li><a href="#how">How it works</a></li><li><a href="#features">Features</a></li><li><a href="#engines">Engines</a></li><li><a class="btn" href="app.html">Open app</a></li></ul></div></nav>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1>Take it apart. Put it back.</h1>
+<p>Photograph every angle before you pull the engine, follow a removal guide for your exact motor, and ask an AI about the part in your hand.</p>
+<div class="cta"><a class="btn dark" href="app.html">Start a teardown</a><a class="btn line" href="#how">See how it works</a></div>
+</div>
+<svg viewBox="0 0 560 400" role="img" aria-label="Exploded diagram of an engine: head bolts, cylinder head, pistons, block and crankshaft">
+<g stroke="var(--ink)" stroke-width="2" stroke-dasharray="5 5" fill="none"><path d="M150 46V330M230 46V330M310 46V330M390 46V330"/></g>
+<g fill="var(--accent)" stroke="var(--ink)" stroke-width="2"><rect x="143" y="10" width="14" height="36"/><rect x="223" y="10" width="14" height="36"/><rect x="303" y="10" width="14" height="36"/><rect x="383" y="10" width="14" height="36"/></g>
+<rect x="110" y="64" width="300" height="40" fill="var(--panel)" stroke="var(--ink)" stroke-width="3"/>
+<g fill="var(--panel)" stroke="var(--ink)" stroke-width="3"><rect x="125" y="130" width="50" height="52"/><rect x="205" y="130" width="50" height="52"/><rect x="285" y="130" width="50" height="52"/><rect x="365" y="130" width="50" height="52"/></g>
+<g stroke="var(--ink)" stroke-width="3"><path d="M125 144h50M205 144h50M285 144h50M365 144h50M125 154h50M205 154h50M285 154h50M365 154h50"/></g>
+<rect x="110" y="210" width="300" height="140" fill="var(--ink)"/>
+<g fill="var(--bg)"><rect x="126" y="210" width="48" height="64"/><rect x="206" y="210" width="48" height="64"/><rect x="286" y="210" width="48" height="64"/><rect x="366" y="210" width="48" height="64"/></g>
+<path d="M120 322H400" stroke="var(--accent)" stroke-width="16"/>
+<g stroke="var(--ink)" stroke-width="2" fill="none"><path d="M440 28L400 28M440 84L410 84M440 156L415 156M440 250L410 250M440 322L400 322"/></g>
+<g fill="var(--ink)"><circle cx="452" cy="28" r="12"/><circle cx="452" cy="84" r="12"/><circle cx="452" cy="156" r="12"/><circle cx="452" cy="250" r="12"/><circle cx="452" cy="322" r="12"/></g>
+<g fill="var(--bg)" font-family="Arial Narrow,Arial,sans-serif" font-weight="800" font-size="15" text-anchor="middle"><text x="452" y="33">1</text><text x="452" y="89">2</text><text x="452" y="161">3</text><text x="452" y="255">4</text><text x="452" y="327">5</text></g>
+<g fill="var(--ink)" font-family="Arial Narrow,Arial,sans-serif" font-size="15" font-weight="700"><text x="472" y="33">Head bolts</text><text x="472" y="89">Head</text><text x="472" y="161">Pistons</text><text x="472" y="255">Block</text><text x="472" y="327">Crank</text></g>
+</svg>
+</div>
+
+<section id="how"><div class="wrap"><h2>Four steps from running to rebuilt</h2>
+<ol class="steps">
+<li><h3>Pick your engine</h3><p>Search by make or engine code, or decode your VIN.</p></li>
+<li><h3>Shoot the bay</h3><p>The app walks you through every angle and close-up, one photo at a time.</p></li>
+<li><h3>Pull it</h3><p>Check off each removal step. Link photos to the step they belong to.</p></li>
+<li><h3>Rebuild</h3><p>Flip to reassembly order. Your photos show up beside each step.</p></li>
+</ol></div></section>
+
+<section id="features"><div class="wrap"><h2>Built for the garage floor</h2>
+<div class="feat"><div><h3>Guided photo walkthrough</h3><p>Nobody remembers where the third vacuum line went. BlockBuilder prompts the exact shots, then lets you add notes like "3 bolts, 2 sizes".</p><p>Photos are saved on your device and work with no signal.</p></div>
+<ul class="shots"><li>Front <small>whole bay</small></li><li>Driver side <small>full engine</small></li><li>Wiring connectors <small>close up</small></li><li>Vacuum and coolant hoses <small>start and end</small></li><li>Accessory belt routing <small>before loosening</small></li></ul></div>
+<div class="feat"><div><h3>Engine database with removal guides</h3><p>Pick an engine and see its specs, firing order and an ordered removal checklist. Reverse it for reassembly.</p><p>Missing yours? Submit it and it can be added for everyone.</p></div>
+<ul class="engines" style="margin:0"><li>GM LS1 5.7L<small>Chevrolet, Pontiac</small></li><li>Honda B-series<small>Honda, Acura</small></li><li>Toyota 2JZ-GE<small>Toyota, Lexus</small></li><li>Chevy 350<small>Small block V8</small></li></ul></div>
+<div class="feat"><div><h3>An AI that sees your engine</h3><p>Send a photo of a connector or bracket and ask what it is. The assistant knows which engine and step you are on, and tells you when to check the factory manual instead of guessing.</p></div>
+<div class="chat"><p class="me">What is this plug next to the throttle body?</p><p>That looks like the idle air control or throttle position connector. Check it against the wiring photo you took of that area, and confirm in your service manual.</p></div></div>
+<div class="feat"><div><h3>Installs like an app</h3><p>Add it to your phone's home screen. It opens full screen, loads fast and keeps working under the car where signal is poor.</p></div>
+<p class="note">Guides are starter data and AI answers can be wrong. Always confirm procedures and torque specs against the factory service manual.</p></div>
+</div></section>
+
+<section id="engines"><div class="wrap"><h2>Engines in the database</h2>
+<ul class="engines"><li>GM LS1 5.7L<small>1997 to 2004, V8</small></li><li>Honda B16 and B18<small>1990 to 2001, inline 4</small></li><li>Toyota 2JZ-GE 3.0L<small>1991 to 2005, inline 6</small></li><li>Chevy Small Block 350<small>1967 to 2002, V8</small></li></ul>
+<a class="btn line" href="app.html#/contribute">Add an engine</a></div></section>
+
+<section class="band"><div class="wrap"><h2>Your next teardown starts with a photo.</h2><a class="btn dark" href="app.html">Open BlockBuilder</a></div></section>
+</main>
+<footer><div class="wrap">BlockBuilder. Work safely: support the engine, relieve fuel pressure and never vent refrigerant.</div></footer>
 </body>
 </html>
