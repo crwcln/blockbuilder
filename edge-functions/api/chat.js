@@ -12,6 +12,11 @@ Rules:
 
 const json = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { 'Content-Type': 'application/json' } });
 
+// GET /api/chat → quick deployment check (no secrets): open it in your browser to see if the function is live and the key is set
+export async function onRequestGet({ env }) {
+  return json({ ok: true, function: 'chat', keySet: !!env.GEMINI_API_KEY, model: env.GEMINI_MODEL || 'gemini-2.5-flash' });
+}
+
 export async function onRequestPost({ request, env }) {
   const key = env.GEMINI_API_KEY;
   if (!key) return json({ error: 'GEMINI_API_KEY is not set on the server.' }, 500);

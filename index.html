@@ -160,10 +160,14 @@ const openSheet=h=>{$('#shc').innerHTML='<div class="grab"></div>'+h;$('#sheet')
 $('#sheet').onclick=e=>{if(e.target.id==='sheet')closeSheet()};
 
 /* ---------- photo storage ---------- */
-const dbp=new Promise((res,rej)=>{const r=indexedDB.open('blockbuilder',1);r.onupgradeneeded=()=>r.result.createObjectStore('photos',{keyPath:'id'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
-const dbx=async(m,f)=>{const d=await dbp;return new Promise((res,rej)=>{const t=d.transaction('photos',m),q=f(t.objectStore('photos'));t.oncomplete=()=>res(q?.result);t.onerror=()=>rej(t.error)})};
+const withTimeout=(p,ms)=>Promise.race([p,new Promise((_,r)=>setTimeout(()=>r(new Error('timeout')),ms))]);
+let storageOK=true;
+function warnStorage(){if(!storageOK)return;storageOK=false;$('#off').textContent='Photo storage is blocked in this browser, so photos will be lost when you close it. Open the site in Safari or Chrome (not a private tab or in-app browser).';$('#off').hidden=false}
+const dbp=withTimeout(new Promise((res,rej)=>{if(!window.indexedDB)return rej(new Error('no idb'));const r=indexedDB.open('blockbuilder',1);r.onupgradeneeded=()=>r.result.createObjectStore('photos',{keyPath:'id'});r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);r.onblocked=()=>rej(new Error('blocked'))}),4000);
+dbp.catch(()=>{});
+const dbx=async(m,f)=>{try{const d=await dbp;return await withTimeout(new Promise((res,rej)=>{const t=d.transaction('photos',m),q=f(t.objectStore('photos'));t.oncomplete=()=>res(q?.result);t.onerror=()=>rej(t.error);t.onabort=()=>rej(t.error)}),6000)}catch(e){warnStorage();return undefined}};
 let PH=[];
-async function loadPhotos(){const p=curProj();PH=p?((await dbx('readonly',s=>s.getAll()))||[]).filter(x=>x.pid===p.id).sort((a,b)=>a.t-b.t):[];renderPhotos()}
+async function loadPhotos(){const p=curProj(),all=p?((await dbx('readonly',s=>s.getAll()))||[]):[];if(curProj()===p)PH=p?all.filter(x=>x.pid===p.id).sort((a,b)=>a.t-b.t):[];renderPhotos()}
 function toJpeg(s,w,h,max,q=.82){const k=Math.min(1,max/Math.max(w,h)),c=document.createElement('canvas');c.width=Math.round(w*k);c.height=Math.round(h*k);c.getContext('2d').drawImage(s,0,0,c.width,c.height);return c.toDataURL('image/jpeg',q)}
 const loadImg=u=>new Promise((res,rej)=>{const i=new Image();i.onload=()=>res(i);i.onerror=()=>rej(new Error('Could not read that image'));i.src=u});
 const fileImg=async(f,max=1600,q=.82)=>{const u=URL.createObjectURL(f);try{const i=await loadImg(u);return toJpeg(i,i.naturalWidth,i.naturalHeight,max,q)}finally{URL.revokeObjectURL(u)}};
@@ -207,12 +211,12 @@ function customSheet(){const o=(a,sel)=>a.map(([v,l])=>`<option value="${v}" ${v
   <label class="lab">Project name</label><input class="f" id="pn" placeholder="e.g. 1972 C10 350" maxlength="60">
   <button class="btn pri wide" id="pgo" style="margin-top:14px">Start teardown project</button>`);
   $('#pgo').onclick=()=>{const c={cfg:$('#cc').value,valve:$('#cv').value,timing:$('#ct').value,fuel:$('#cf').value,block:$('#cb').value,boost:$('#cbo').checked,dist:$('#cdi').checked};newProject('custom',c,$('#pn').value||'Custom engine')}}
-async function newProject(engineId,custom,name){const p={id:uid(),engineId,custom,name:(name||'').trim()||'New project',created:Date.now(),checks:{},notes:''};S.projects.push(p);S.active=p.id;save();closeSheet();await loadPhotos();renderAll();go('steps');toast('Project started. Open Photos to document the engine first.')}
+async function newProject(engineId,custom,name){const p={id:uid(),engineId,custom,name:(name||'').trim()||'New project',created:Date.now(),checks:{},notes:''};S.projects.push(p);S.active=p.id;save();PH=[];openStep=-1;closeSheet();renderAll();go('steps');toast('Project started. Open Photos to document the engine first.');loadPhotos()}
 
 /* ---------- projects ---------- */
 function renderProjBtn(){const p=curProj();$('#projbtn').innerHTML=ic('stack')+`<span>${p?esc(p.name):'No project'}</span>`}
 $('#projbtn').onclick=()=>{openSheet(`<h2>Projects</h2>${S.projects.length?'':'<p class="mut">No projects yet. Pick an engine to start one.</p>'}`+S.projects.map(p=>`<div class="row" style="margin:8px 0"><button class="btn" data-p="${p.id}" style="flex:1;justify-content:flex-start;${p.id===S.active?'border-color:#ffa238':''}">${esc(p.name)}</button><button class="btn sm" data-d="${p.id}" aria-label="Delete">${ic('trash')}</button></div>`).join('')+'<button class="btn pri wide" id="pnew" style="margin-top:10px">Pick an engine for a new project</button>');
-  $$('#shc [data-p]').forEach(b=>b.onclick=async()=>{S.active=b.dataset.p;save();closeSheet();await loadPhotos();renderAll()});
+  $$('#shc [data-p]').forEach(b=>b.onclick=async()=>{S.active=b.dataset.p;save();closeSheet();PH=[];renderAll();loadPhotos()});
   $$('#shc [data-d]').forEach(b=>b.onclick=async()=>{if(!confirm('Delete this project and its photos?'))return;const id=b.dataset.d;for(const x of ((await dbx('readonly',s=>s.getAll()))||[]).filter(x=>x.pid===id))await dbx('readwrite',s=>s.delete(x.id));S.projects=S.projects.filter(p=>p.id!==id);if(S.active===id)S.active=S.projects[0]?.id||null;save();closeSheet();await loadPhotos();renderAll()});
   $('#pnew').onclick=()=>{closeSheet();go('lib')}};
 
@@ -303,7 +307,7 @@ const ctx=()=>{const p=curProj();if(!p)return'';const e=engOf(p),st=stepsFor(e),
 function renderCtx(){const p=curProj();$('#ctx').innerHTML=p?`<span><b>${esc(p.name)}</b> · ${esc(engOf(p).title)}</span>${ic('chev')}`:`<span>No project selected. Answers will be general.</span>${ic('chev')}`;$('#ctx').onclick=()=>go(p?'steps':'lib')}
 async function streamTo(el,body,signal,st){
   const r=await fetch('/api/chat',{method:'POST',signal,headers:{'Content-Type':'application/json'},body});
-  if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(d.error||`Request failed (${r.status}). Try fewer or smaller photos.`)}
+  if(!r.ok){const d=await r.json().catch(()=>({}));throw new Error(r.status===404?'The chat function was not found (404). Make sure edge-functions/api/chat.js is in the root of your repo, then redeploy. You can check it by opening /api/chat in your browser.':d.error||`Request failed (${r.status}). Try fewer or smaller photos.`)}
   const paint=()=>{const near=chat.scrollHeight-chat.scrollTop-chat.clientHeight<150;el.innerHTML=md(st.text.slice(0,st.shown))+'<span class="caret"></span>';if(near)chat.scrollTop=chat.scrollHeight};
   const typer=new Promise(res=>{const tick=()=>{if(st.stop)return res();if(st.shown<st.text.length){st.shown=Math.min(st.text.length,st.shown+Math.max(2,Math.ceil((st.text.length-st.shown)/14)));paint()}if(st.done&&st.shown>=st.text.length)return res();requestAnimationFrame(tick)};tick()});
   const rd=r.body.getReader(),dec=new TextDecoder();let buf='';
@@ -329,8 +333,9 @@ const Q=['What tools do I need?','Why might this engine have failed?','What shou
 $('#quick').innerHTML=Q.map((q,i)=>`<button class="chipb" data-q="${i}">${q}</button>`).join('');$$('#quick button').forEach(b=>b.onclick=()=>send(Q[+b.dataset.q]));
 
 /* ---------- boot ---------- */
+addEventListener('unhandledrejection',e=>{if(e.reason?.message==='timeout')return;toast('Something went wrong: '+(e.reason?.message||'unknown error'))});addEventListener('error',e=>toast('Error: '+(e.message||'unknown')));
 function renderAll(light){renderProjBtn();renderSteps();renderCtx();if(!light){renderPhotos()}}
-const net=()=>$('#off').hidden=navigator.onLine;addEventListener('online',net);addEventListener('offline',net);net();
+const net=()=>{if(storageOK){$('#off').textContent='Offline: engines, steps and photos work. Chat needs a connection.';$('#off').hidden=navigator.onLine}};addEventListener('online',net);addEventListener('offline',net);net();
 if(window.visualViewport){const vv=()=>{document.documentElement.style.setProperty('--h',visualViewport.height+'px');scrollTo(0,0)};visualViewport.addEventListener('resize',vv);vv()}
 if(S.active&&!curProj())S.active=null;
 sendUI();renderMakes();renderLib();renderAll();loadPhotos();if(curProj())go('steps');

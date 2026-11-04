@@ -23,3 +23,7 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 - The database holds engine facts, notes and known failure points. It deliberately has **no torque specs, clearances or firing orders**. Always confirm those in the factory service manual for the exact engine. The AI is told to do the same.
 - Photos and projects live in this browser. Clearing site data erases them.
 - Edge functions have a request size limit, so chat photos are shrunk to 1024px and the AI photo check sends at most 8 images at 800px.
+
+## Troubleshooting
+- **Chat says "404 / function not found":** the server function isn't deployed. `edge-functions/api/chat.js` must be at the **root** of the repo you connect to EdgeOne (not inside a subfolder), then redeploy. Open `https://your-site/api/chat` in a browser: you should see `{"ok":true,"keySet":true,...}`. A 404 page means the function isn't deployed. `keySet:false` means the `GEMINI_API_KEY` env var isn't set for the deployed environment (redeploy after adding it).
+- **Photos not saving / banner about storage:** the browser is blocking IndexedDB. Use Safari or Chrome in a normal tab, not a private tab, Lockdown Mode, or an in-app browser (Instagram, Facebook, Gmail links).
