@@ -5,6 +5,7 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 ## Files
 - `index.html` — the whole app (UI, photo walk-through, streaming chat)
 - `engines.js` — the engine database plus the teardown-step and photo-angle generators. Add engines by adding a line to `RAW`.
+- `step-art.js` — original SVG illustrations for each step type, plus optional per-engine/family photo overrides.
 - `edge-functions/api/chat.js` — streams Gemini answers; keeps your API key on the server
 - `sw.js`, `manifest.webmanifest`, icons — installable, works offline (everything except chat and AI photo scanning)
 
@@ -22,6 +23,16 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 - **Photo walk-through:** a full-screen guide shows where to stand for each shot (front, both sides, rear, top, belt routing, hoses, harness, connectors, turbo plumbing, and so on), then a second set of checkpoints for during teardown (timing marks, valvetrain, pistons, cap markings). Photos are stored on the device in IndexedDB, can carry notes, and can be sent to the AI. A video walk-around is turned into 12 saved frames.
 - **Chat:** attach photos or a short video (8 frames are sent). "Check my photos with AI" sends up to 8 of your shots for a review of blurry or missing angles and notable damage.
 - **Install & offline:** the app installs from Chrome/Edge (install prompt) or Safari (Share > Add to Home Screen). The service worker caches the app shell, icons and engine data, serves the last-known page offline, and prompts when a new version is ready. Shortcuts open the library, VIN decoder or chat directly.
+
+## Step images
+Every teardown step shows an original SVG illustration chosen from its text and engine type. These are generic diagrams, not factory photographs, and the caption says to verify the procedure in the factory manual.
+
+To use licensed per-engine or family photos, add URLs to `ENGINE_STEP_PHOTOS` in `step-art.js`. The lookup order is:
+1. `engineId|stepIndex` — one exact step for one engine
+2. `engineId|step title` — same step title across all projects for that engine
+3. `family:inline|step title`, `family:v|step title`, `family:flat|step title`, `family:small|step title`, `family:two-stroke|step title`, `family:rotary|step title` — shared family photo
+
+Example: `'chevrolet-small-block-350-gen-i-carbureted|0': '/img/engines/sbc-350/01.jpg'`. Without an override, the built-in illustration is used.
 
 ## Notes
 - The database holds engine facts, notes and known failure points. It deliberately has **no torque specs, clearances or firing orders**. Always confirm those in the factory service manual for the exact engine. The AI is told to do the same.

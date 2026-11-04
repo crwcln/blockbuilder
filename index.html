@@ -61,6 +61,7 @@ h3{font-size:19px;margin-bottom:8px}.mut{color:var(--mute);font-size:14px}.hint{
 .cb{width:40px;height:40px;border-radius:12px;border:1.5px solid #4a5058;display:grid;place-items:center;flex:none;transition:all .25s var(--ease);background:#0e1013;color:transparent}.cb .i{width:20px;height:20px;stroke-width:3}.done .cb{background:var(--am);border-color:var(--am);color:#1c1004;animation:pop2 .3s var(--ease)}@keyframes pop2{50%{transform:scale(1.18)}}
 .stp .t{flex:1;font-weight:600;line-height:1.3}.done .t{text-decoration:line-through;color:var(--mute)}.chev{transition:transform .25s var(--ease);color:var(--mute)}.open .chev{transform:rotate(90deg)}
 .sd{display:none;padding:2px 16px 16px 60px;color:#cfd5db;font-size:15px}.open .sd{display:block;animation:pin .3s var(--ease) both}.sd .tp{margin-top:8px;padding:8px 12px;border-left:2px solid var(--am);background:rgba(255,162,56,.07);border-radius:0 8px 8px 0;font-size:14px}
+.stepart{margin:12px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#15181c}.stepart svg,.stepart img{display:block;width:100%;height:auto}.stepart figcaption{padding:7px 10px;border-top:1px solid var(--line);color:var(--mute);font-size:12px;line-height:1.35}.stepart img{aspect-ratio:16/9;object-fit:cover}
 .next{display:flex;gap:12px;align-items:center}.next .nt{flex:1}
 /* photos */
 .seg{display:flex;gap:4px;margin:4px 16px 10px;padding:4px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line)}.seg button{flex:1;min-height:42px;border:0;border-radius:10px;background:none;color:var(--mute);font-weight:600;transition:all .25s var(--ease)}.seg button.on{background:var(--panel2);color:var(--am);box-shadow:inset 0 0 0 1px rgba(255,162,56,.35)}
@@ -173,6 +174,7 @@ h3{font-size:19px;margin-bottom:8px}.mut{color:var(--mute);font-size:14px}.hint{
 <input type="file" id="wvid" accept="video/*" capture="environment" hidden>
 <input type="file" id="scanin" accept="image/*" capture="environment" hidden>
 <script src="/engines.js"></script>
+<script src="/step-art.js"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -511,7 +513,7 @@ function renderSteps(){const p=curProj(),el=$('#steps');
   ${ni>=0?`<div class="card next"><div class="nt"><div class="mut">Up next</div><b style="font-size:17px">${esc(st[ni].t)}</b></div><button class="btn pri sm" id="nxt">Open</button></div>`:`<div class="card"><h3>Teardown complete</h3><p class="mut">Everything is checked off. Review your notes and plan parts and machine work.</p></div>`}
   <details class="card"><summary style="cursor:pointer;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center">Know before you start ${ic('chev','chev')}</summary><p style="color:#cfd5db;margin-top:10px">${esc(e.note)}</p><ul class="tips">${tipsFor(e).map(t=>`<li>${esc(t)}</li>`).join('')}</ul></details>`+
   st.map((s,i)=>{let h='';if(s.ph!==ph){ph=s.ph;const t=st.filter(x=>x.ph===ph),d=t.filter(x=>p.checks[st.indexOf(x)]).length;h=`<div class="ph"><h3>${esc(ph)}</h3><span class="mut">${d}/${t.length}</span></div>`}
-    return h+`<div class="stp ${p.checks[i]?'done':''} ${openStep===i?'open':''}" data-i="${i}"><div class="sh"><button class="cb" data-c="${i}" aria-label="Mark done">${ic('check')}</button><button class="t" data-o="${i}" style="background:none;border:0;text-align:left;flex:1;min-height:44px;font-weight:600">${esc(s.t)}</button>${ic('chev','chev')}</div><div class="sd"><p>${esc(s.d)}</p>${s.tip?`<div class="tp">${esc(s.tip)}</div>`:''}<div class="row" style="margin-top:10px"><button class="btn sm" data-a="${i}">Ask about this step</button></div></div></div>`}).join('')+
+    return h+`<div class="stp ${p.checks[i]?'done':''} ${openStep===i?'open':''}" data-i="${i}"><div class="sh"><button class="cb" data-c="${i}" aria-label="Mark done">${ic('check')}</button><button class="t" data-o="${i}" style="background:none;border:0;text-align:left;flex:1;min-height:44px;font-weight:600">${esc(s.t)}</button>${ic('chev','chev')}</div><div class="sd">${stepVisual(s,e,i)}<p>${esc(s.d)}</p>${s.tip?`<div class="tp">${esc(s.tip)}</div>`:''}<div class="row" style="margin-top:10px"><button class="btn sm" data-a="${i}">Ask about this step</button></div></div></div>`}).join('')+
   `<div class="card" style="margin-top:16px"><h3>Teardown notes</h3><textarea class="f" id="pnotes" placeholder="What you found: wear, damage, measurements, part numbers…">${esc(p.notes)}</textarea></div>`;
   requestAnimationFrame(()=>requestAnimationFrame(()=>$('#rf')?.setAttribute('stroke-dasharray',pct+' 100')));
   $$('#steps [data-c]').forEach(b=>b.onclick=ev=>{ev.stopPropagation();const i=+b.dataset.c;p.checks[i]=!p.checks[i];save();const y=el.scrollTop;renderSteps();el.scrollTop=y;if(navigator.vibrate)navigator.vibrate(15)});

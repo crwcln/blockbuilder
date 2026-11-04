@@ -1,6 +1,6 @@
 // App-shell cache so engines, steps and photos work in the garage with no signal.
-const C = 'bb-v5';
-const ASSETS = ['/', '/index.html', '/engines.js', '/manifest.webmanifest', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png'];
+const C = 'bb-v6';
+const ASSETS = ['/', '/index.html', '/engines.js', '/step-art.js', '/manifest.webmanifest', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png'];
 const put = (req, res) => res && res.ok ? caches.open(C).then(c => c.put(req, res)).catch(() => 0) : Promise.resolve();
 
 self.addEventListener('install', e => {
