@@ -5,7 +5,10 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 ## Files
 - `index.html` — the whole app (UI, photo walk-through, streaming chat)
 - `engines.js` — the engine database plus the teardown-step and photo-angle generators. Add engines by adding a line to `RAW`.
-- `step-art.js` — original SVG illustrations for each step type, plus optional per-engine/family photo overrides.
+- `step-images.js` — maps each step type to a generic reference photo, plus optional per-engine/family photo overrides.
+- `img/parts/` — local generic part photos used by the teardown steps.
+- `credits.html` — source, author and license for every reference image.
+- `CHANGELOG.md`, `changelog.html` — release history (also linked from the Projects sheet).
 - `edge-functions/api/chat.js` — streams Gemini answers; keeps your API key on the server
 - `sw.js`, `manifest.webmanifest`, icons — installable, works offline (everything except chat and AI photo scanning)
 
@@ -22,17 +25,19 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 - **Onboarding:** starting any project asks a short Discord-style set of questions — goal, symptoms, teardown depth and experience — and feeds those answers into the plan, the Teardown tab and the AI context.
 - **Photo walk-through:** a full-screen guide shows where to stand for each shot (front, both sides, rear, top, belt routing, hoses, harness, connectors, turbo plumbing, and so on), then a second set of checkpoints for during teardown (timing marks, valvetrain, pistons, cap markings). Photos are stored on the device in IndexedDB, can carry notes, and can be sent to the AI. A video walk-around is turned into 12 saved frames.
 - **Chat:** attach photos or a short video (8 frames are sent). "Check my photos with AI" sends up to 8 of your shots for a review of blurry or missing angles and notable damage.
-- **Install & offline:** the app installs from Chrome/Edge (install prompt) or Safari (Share > Add to Home Screen). The service worker caches the app shell, icons and engine data, serves the last-known page offline, and prompts when a new version is ready. Shortcuts open the library, VIN decoder or chat directly.
+- **Install & offline:** the app installs from Chrome/Edge (install prompt) or Safari (Share > Add to Home Screen). The service worker caches the app shell, icons, engine data and generic part photos, serves the last-known page offline, and prompts when a new version is ready. Shortcuts open the library, VIN decoder or chat directly.
 
 ## Step images
-Every teardown step shows an original SVG illustration chosen from its text and engine type. These are generic diagrams, not factory photographs, and the caption says to verify the procedure in the factory manual.
+Every teardown step shows a generic reference photo chosen from its text and engine type. These photos show the type of part or tool, not the exact engine, and the caption links to the credits page and says to verify the procedure in the factory manual.
 
-To use licensed per-engine or family photos, add URLs to `ENGINE_STEP_PHOTOS` in `step-art.js`. The lookup order is:
+Image sources, authors and licenses are listed in `credits.html`. All reference photos come from Wikimedia Commons under public-domain or Creative Commons licenses.
+
+To use licensed per-engine or family photos, add URLs to `ENGINE_STEP_PHOTOS` in `step-images.js`. The lookup order is:
 1. `engineId|stepIndex` — one exact step for one engine
 2. `engineId|step title` — same step title across all projects for that engine
 3. `family:inline|step title`, `family:v|step title`, `family:flat|step title`, `family:small|step title`, `family:two-stroke|step title`, `family:rotary|step title` — shared family photo
 
-Example: `'chevrolet-small-block-350-gen-i-carbureted|0': '/img/engines/sbc-350/01.jpg'`. Without an override, the built-in illustration is used.
+Example: `'chevrolet-small-block-350-gen-i-carbureted|0': '/img/engines/sbc-350/01.jpg'`. Without an override, the generic part photo is used.
 
 Briggs & Stratton engines also show links to the official Briggs manuals/parts-list lookup and model-number locator. Enter the engine's model-type number on those pages to view the exact factory illustrated parts list. The app links to these pages but does not copy or host the OEM diagrams.
 
