@@ -119,18 +119,51 @@ Mitsubishi|4G63 / 4G63T|I4|2.0L|1989–2007|dohc|belt|efi|iron|1|bal|Eclipse DSM
 Land Rover|Rover V8|V8|3.5L–4.6L|1961–2004|ohv|chain|efi|alu|0|dist|Defender, Discovery, Range Rover, MGB GT V8|Aluminum block and heads. Wet liner slip is a known issue on 4.0 and 4.6 engines.
 Jaguar|XK 4.2 Straight Six|I6|4.2L|1965–1987|dohc|chain|carb|iron|0|dist|E-Type, XJ6, Mk II|Large twin-cam cylinder head with duplex chain. Mark cam and head orientation.
 Volvo|B230|I4|2.3L|1985–1998|sohc|belt|efi|iron|0||240, 740, 940|Famously durable. Belt-driven. Photograph belt marks.
+Briggs & Stratton|500E / 625EX (140cc)|I1|140cc|2011-Present|ohv|gear|carb|alu|0|sm|Push mowers, edgers, pressure washers|Plastic cam gear and splash lubrication. Check the flywheel key before blaming the ignition.
+Briggs & Stratton|Intek 190 / 206|I1|190cc / 206cc|2001-2015|ohv|gear|carb|alu|0|sm|Push mowers, generators, pumps|Overhead valves with a plastic timing gear. Keep the pushrods and rocker pivots in order.
+Briggs & Stratton|Vanguard 16-23 hp|V2|480cc-627cc|1990-Present|ohv|gear|carb|alu|0|sm|Riding mowers, generators, pressure washers|V-twin with two heads. Label left and right, and check valve lash before teardown.
+Briggs & Stratton|Flathead 3.5-5 hp|I1|130cc-206cc|1952-2000|flat|gear|carb|alu|0|sm|Classic mowers, edgers, tillers|L-head engine with no pushrods. Inspect the valve seats and the small head bolt threads carefully.
+Briggs & Stratton|850 Series OHV|I1|190cc|2014-Present|ohv|gear|carb|alu|0|sm|Push mowers, pressure washers|Common overhead-valve design. The plastic cam gear and splash lubrication are the main wear points.
+Briggs & Stratton|Vanguard 35 hp Big Block|V2|993cc|2006-Present|ohv|gear|carb|alu|0|sm|Zero-turn mowers, utility vehicles|Large V-twin. Use a lift or get help, and keep the two heads and pushrods separate.
+Kohler|Courage XT6 / XT7|I1|149cc-173cc|2008-Present|ohv|gear|carb|alu|0|sm|Push mowers, pressure washers|Plastic cam gear and rocker arms. Check valve lash and the flywheel key.
+Kohler|Command Pro CH / ECV|V2|624cc-747cc|1990-Present|ohv|gear|carb|alu|0|sm|Riding mowers, generators, pumps|Hydraulic lifters on many versions. Keep the lifters upright and in order.
+Kohler|K-Series K241 / K301|I1|241cc-301cc|1960-1985|flat|gear|carb|iron|0|sm|Garden tractors, generators|Cast-iron flathead. The head and block are heavy for their size, and the valve guides wear.
+Honda Engines|GX160 / GX200|I1|163cc / 196cc|1983-Present|ohv|gear|carb|alu|0|sm|Generators, pumps, go-karts, pressure washers|Very common OHV engine. The flywheel key, ignition coil gap and carburetor jets are frequent checks.
+Honda Engines|GC160 / GC190|I1|160cc / 187cc|1992-Present|sohc|belt|carb|alu|0|sm|Push mowers, pressure washers|Overhead cam with a timing belt. Replace the belt if it is glazed, and check the valve clearance.
+Honda Engines|GX630 / GX690|V2|688cc|2005-Present|ohv|gear|carb|alu|0|sm|Generators, zero-turn mowers, pumps|V-twin with two separate heads. Label the heads and pushrods, and check the cooling fins for debris.
+Honda Engines|iGX800|V2|779cc|2015-Present|ohv|belt|carb|alu|0|sm|Generators, pressure washers|Electronic governor and belt-driven cam. Photograph the belt and sensor routing before removal.
+Kawasaki Engines|FE290 / FE350|I1|286cc / 351cc|1985-Present|ohv|gear|carb|alu|0|sm|Golf carts, utility vehicles|Cam gear and splash lubrication. Check the compression release and valve lash.
+Kawasaki Engines|FR651V / FR730V|V2|726cc|2008-Present|ohv|gear|carb|alu|0|sm|Zero-turn mowers, riding mowers|V-twin with overhead valves. Keep the rocker arms and pushrods in cylinder order.
+Kawasaki Engines|FX730V / FX850V|V2|726cc-852cc|2007-Present|ohv|gear|carb|alu|0|sm|Commercial mowers, utility vehicles|Heavy-duty V-twin. The cooling shrouds hide debris, so clean and photograph the fins.
+Predator|212cc (6.5 hp)|I1|212cc|2012-Present|ohv|gear|carb|alu|0|sm|Go-karts, minibikes, pressure washers|Honda GX200 clone. Many parts interchange, but check the shaft and bolt sizes before ordering.
+Predator|301cc / 420cc|I1|301cc / 420cc|2012-Present|ohv|gear|carb|alu|0|sm|Go-karts, generators, pumps|Larger single-cylinder OHV. The flywheel key is a common failure after a sudden stop.
+Predator|670cc V-Twin|V2|670cc|2013-Present|ohv|gear|carb|alu|0|sm|Go-karts, generators, utility vehicles|V-twin with a shared crankcase. Keep the two heads, pushrods and rocker arms separate.
+Tecumseh|OHH50 / OHH55 / OHH60|I1|163cc-195cc|1990-2007|ohv|gear|carb|alu|0|sm|Snowblowers, mowers, generators|Overhead-valve engine with a plastic cam gear. Coil and flywheel key failures are common.
+Tecumseh|Enduro / LEV 120|I1|120cc|1995-2010|ohv|gear|carb|alu|0|sm|Push mowers, edgers|Lightweight OHV engine. Check the valve lash and clean the cooling fins.
+Stihl|MS 170 / MS 180|I1|30cc-32cc|2001-Present|2str|none|premix|alu|0|sm 2s|Chainsaws|Two-stroke with a clamshell crankcase. Pressure-test the seals and inspect the piston through the exhaust port.
+Stihl|MS 250 / MS 260|I1|45cc-50cc|1997-Present|2str|none|premix|alu|0|sm 2s|Chainsaws|Two-stroke. Keep the cylinder and piston matched to the crankcase, and pressure-test the seals.
+Stihl|FS 55 / FS 56|I1|27cc|1999-Present|2str|none|premix|alu|0|sm 2s|String trimmers|Two-stroke trimmer. Check the spark screen and fuel lines, and pressure-test the crankcase.
+Echo|SRM-225|I1|21cc|2007-Present|2str|none|premix|alu|0|sm 2s|String trimmers|Two-stroke. Check the spark arrestor, fuel lines and carburetor adjustment.
+Echo|CS-590 Timber Wolf|I1|60cc|2013-Present|2str|none|premix|alu|0|sm 2s|Chainsaws|Two-stroke. Pressure-test the crankcase and inspect the cylinder plating.
+Husqvarna|455 Rancher|I1|55cc|2007-Present|2str|none|premix|alu|0|sm 2s|Chainsaws|Two-stroke. Check the intake boot and seals, and inspect the piston for scoring.
+Husqvarna|128LD / 223L|I1|28cc|2005-Present|2str|none|premix|alu|0|sm 2s|String trimmers|Two-stroke trimmer. Fuel lines and carburetor diaphragms are common wear items.
+Subaru|EX21 / EX27|I1|211cc / 265cc|1998-Present|ohv|gear|carb|alu|0|sm|Generators, pumps, pressure washers|Overhead-valve single. Check the flywheel key and valve lash.
+Subaru|EH65 / EH72|V2|653cc / 720cc|1997-Present|ohv|gear|carb|alu|0|sm|Generators, riding mowers, pumps|V-twin. Label the heads and pushrods, and check the cooling fins.
+Onan|B43 / B48 Flat-Twin|H2|705cc|1970-1990|flat|gear|carb|iron|0|sm|Generators, welders, garden tractors|Flat-twin flathead. Label the two heads and keep the ignition points and condenser parts together.
 `;
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-const cylN = c => ({ I3: 3, I4: 4, I5: 5, I6: 6, V6: 6, V8: 8, V10: 10, V12: 12, H4: 4, H6: 6, R2: 2 })[c] || 4;
+const cylN = c => ({ I1: 1, I3: 3, I4: 4, I5: 5, I6: 6, V2: 2, V6: 6, V8: 8, V10: 10, V12: 12, H2: 2, H4: 4, H6: 6, R2: 2 })[c] || 4;
 const ENGINES = RAW.trim().split('\n').map(l => {
   const [make, name, cfg, disp, years, valve, timing, fuel, block, boost, flags, apps, note] = l.split('|');
   return { id: slug(make + ' ' + name), make, name, title: make + ' ' + name, cfg, disp, years, valve, timing, fuel, block, boost: boost === '1', flags: new Set((flags || '').split(' ').filter(Boolean)), apps, note };
 });
-const mkCustom = c => ({ id: 'custom', make: 'Custom', name: `${c.cfg} ${c.valve.toUpperCase()}`, title: `Custom ${c.cfg} ${c.valve.toUpperCase()}`, cfg: c.cfg, disp: c.disp || '', years: '', valve: c.valve, timing: c.timing, fuel: c.fuel, block: c.block, boost: !!c.boost, flags: new Set([...(c.dist ? ['dist'] : []), ...(c.cfg === 'R2' ? ['rotary'] : [])]), apps: '', note: 'Custom engine. Steps are built from the options you picked.' });
-const VALVE = { ohv: 'Pushrod OHV', sohc: 'SOHC', dohc: 'DOHC', rotary: 'Rotary' }, TIMING = { chain: 'Chain', belt: 'Belt', gear: 'Gears', '—': 'None' }, FUEL = { carb: 'Carburetor', tbi: 'Throttle-body injection', efi: 'Port injection', di: 'Direct injection', dsl: 'Diesel' };
+const mkCustom = c => ({ id: 'custom', make: 'Custom', name: `${c.cfg} ${c.valve.toUpperCase()}`, title: `Custom ${c.cfg} ${c.valve.toUpperCase()}`, cfg: c.cfg, disp: c.disp || '', years: '', valve: c.valve, timing: c.timing, fuel: c.fuel, block: c.block, boost: !!c.boost, flags: new Set([...(c.dist ? ['dist'] : []), ...(c.cfg === 'R2' ? ['rotary'] : []), ...(['I1', 'V2', 'H2'].includes(c.cfg) ? ['sm'] : []), ...(c.valve === '2str' ? ['2s'] : [])]), apps: '', note: 'Custom engine. Steps are built from the options you picked.' });
+const VALVE = { ohv: 'Pushrod OHV', sohc: 'SOHC', dohc: 'DOHC', flat: 'Flathead (L-head)', '2str': 'Two-stroke', rotary: 'Rotary' }, TIMING = { chain: 'Chain', belt: 'Belt', gear: 'Gears', none: 'None', '—': 'None' }, FUEL = { carb: 'Carburetor', tbi: 'Throttle-body injection', efi: 'Port injection', di: 'Direct injection', dsl: 'Diesel', premix: 'Pre-mixed fuel' };
 
 function tipsFor(e) {
   const f = e.flags, t = [];
+  if (f.has('2s')) t.push('Two-stroke: there is no oil sump or valvetrain. Pressure-test the crankcase seals and keep the cylinder matched to its piston.');
+  else if (f.has('sm')) t.push('Small engine: take a compression reading and photograph the linkage before teardown. Check the flywheel key, coil gap and cooling fins.');
   if (f.has('int')) t.push('Interference engine: never rotate the crank or cams on their own once the timing set is off.');
   if (f.has('tty')) t.push('Torque-to-yield head bolts stretch when tightened. Do not reuse them.');
   if (f.has('vvt')) t.push('Variable valve timing: mark phaser positions, hold cams on their wrench flats, and never use an impact on phasers.');
@@ -149,6 +182,7 @@ function tipsFor(e) {
 
 function stepsFor(e) {
   const st = [], A = (ph, t, d, tip) => st.push({ ph, t, d, tip }), f = e.flags, V = /^[VH]/.test(e.cfg), carb = e.fuel === 'carb', dsl = e.fuel === 'dsl', inj = ['efi', 'di', 'tbi'].includes(e.fuel);
+  if (f.has('sm')) return f.has('2s') ? twoStrokeSteps(e, A, st) : smallSteps(e, A, st);
   A('Prep', 'Photograph everything first', 'Run the guided Photos walk-through for every angle, hose, wire and belt before anything comes off. Take more shots than you think you need.', 'Open the Photos tab.');
   A('Prep', 'Set up your workspace', 'Clean bench, zip bags, painter’s tape, a marker and magnetic trays. Plan to bag and label fasteners by system as they come off.');
   A('Prep', 'Drain the fluids', 'Drain oil, coolant and any fuel. Check each for metal flakes, a milky look or a fuel smell. These show why the engine failed.', 'Photograph the drained oil and coolant.');
@@ -196,6 +230,45 @@ function stepsFor(e) {
   A('Bag & store', 'Log what you found', 'Write down worn parts, damage and measurements in the project notes while it is fresh.');
   return st;
 }
+function smallSteps(e, A, st) {
+  const flat = e.valve === 'flat', ohc = e.valve === 'sohc';
+  A('Prep', 'Identify the engine and photograph it', 'Record the model, type and serial numbers. Photograph the carburetor, linkages, fuel lines, ignition coil and cooling shrouds before removing anything.', 'Model and serial numbers are how you get the right parts.');
+  A('Prep', 'Disconnect the spark plug and drain the fuel', 'Pull the spark plug boot off and ground it away from the plug hole. Shut off the fuel valve and drain the tank into a labeled container.', 'Never work around a hot muffler or an engine that can still be started.');
+  A('Prep', 'Drain the oil on a four-stroke', 'Tip the engine toward the drain plug or sump and drain the oil. Look for metal, water or a burnt smell.', 'Two-stroke engines have no oil sump, so skip this step for those.');
+  A('Externals', 'Remove the blower housing and recoil starter', 'Photograph the bolt locations and the starter cup. Keep the recoil starter and shroud together.', 'The recoil spring is under tension and can unwind if the housing is opened.');
+  A('Externals', 'Remove the fuel tank and carburetor', 'Photograph the throttle, choke and governor linkage before removing the tank. Label the fuel line and breather hose and keep the carburetor upright.', 'Linkages often have a specific spring and rod order.');
+  A('Externals', 'Remove the muffler and heat shield', 'Unbolt the muffler from the cylinder head. Check the exhaust port for carbon, oil or metal.', 'The muffler and head stay hot after the engine stops.');
+  A('Externals', 'Remove the cooling shrouds and clean the fins', 'Clean grass and oil from the cylinder fins and flywheel screen. Photograph the shroud bolt locations before removing them.', 'Blocked fins cause overheating and warped heads.');
+  A('Top end', flat ? 'Remove the cylinder head (flathead)' : 'Set the piston to TDC and remove the cylinder head', 'Rotate the engine until the piston is at top dead center and both valves are closed. Loosen the head bolts in a cross pattern.', 'Mark the head orientation and keep the gasket.');
+  if (ohc) A('Top end', 'Inspect the timing belt and cam', 'Photograph the belt and cam marks before removal. Check the belt for glazing, cracks and missing teeth.', 'Replace the belt and tensioner together if either shows wear.');
+  A('Top end', 'Remove the valves and inspect the seats', 'Use a valve spring compressor. Keep the valves, springs, keepers and caps in labeled bags by intake or exhaust.', 'Do not drop keepers into the crankcase.');
+  A('Bottom end', 'Remove the sump or crankcase cover', 'Turn the engine over and loosen the cover bolts evenly. Keep the cover and gasket together.', 'Do not pry on the sealing surfaces.');
+  A('Bottom end', 'Remove the connecting rod and piston', 'Mark the rod and cap orientation. Remove the ridge if present, then push the piston out through the top.', 'Keep the rod cap with its rod and note the piston orientation.');
+  A('Inspect', 'Inspect the bore, piston and bearings', 'Check the bore for scoring, the piston skirt for scuffing and the rod for play. Measure the bore and crank journal.', 'Small-engine repair limits are in the factory service manual.');
+  A('Inspect', 'Check the flywheel key, coil and ignition', 'Inspect the flywheel key, coil gap and kill wire. A sheared key will change ignition timing after a blade strike.', 'Photograph the coil position before loosening it.');
+  A('Inspect', 'Check the governor and linkages', 'Inspect the governor spring, arm and linkage for wear or bending. Photograph the routing before disassembly.', 'A bent governor arm can make the engine surge or overspeed.');
+  A('Inspect', 'Measure and order parts', 'Make a list: gaskets, seals, rings or piston, ignition parts and carburetor kit. Check the model and serial number before ordering.', 'Do not order by appearance or by engine color.');
+  A('Bag & store', 'Bag, label and store everything', 'Label bags by system and photograph the labeled bags. Coat bare machined surfaces with light oil.', 'Keep the head bolts with the head and the rod cap with its rod.');
+  A('Bag & store', 'Log what you found', 'Write down worn parts, damage and measurements while it is fresh.', 'Photos plus notes make reassembly much easier months later.');
+  return st;
+}
+function twoStrokeSteps(e, A, st) {
+  A('Prep', 'Identify the engine and photograph it', 'Record the model and serial numbers. Photograph the carburetor, fuel lines, ignition coil, muffler and intake boot before removing anything.', 'Parts vary by serial number, so order carefully.');
+  A('Prep', 'Remove the spark plug and drain the fuel', 'Ground the spark plug boot away from the plug hole and drain the fuel into a labeled container.', 'Two-stroke fuel is pre-mixed and stays flammable.');
+  A('Externals', 'Remove the bar, chain or trimmer head and guards', 'Photograph the mounting hardware and the chain brake linkage before removal.', 'Keep the bar and chain together with their orientation.');
+  A('Externals', 'Remove the starter cover, flywheel and coil', 'Photograph the coil position and the flywheel key. Hold the flywheel with the correct tool, not a screwdriver.', 'A sheared flywheel key changes ignition timing.');
+  A('Externals', 'Remove the carburetor and intake boot', 'Label the fuel and impulse lines. Inspect the intake boot for cracks and the carburetor for dirt or diaphragm damage.', 'Leaks here cause a lean seizure.');
+  A('Externals', 'Remove the muffler and inspect the exhaust port', 'Unbolt the muffler and look at the piston through the exhaust port. Photograph any scoring or aluminum transfer.', 'Do not scrape the piston through the port.');
+  A('Top end', 'Remove the cylinder', 'Remove the cylinder bolts evenly. On a clamshell engine the cylinder is part of the crankcase, so split the case instead.', 'Keep the cylinder matched to the piston and ring.');
+  A('Bottom end', 'Remove the piston, rod and crankshaft', 'Mark the rod and piston orientation. Remove the crank and inspect the bearings and seals.', 'Keep the crank and case halves matched.');
+  A('Inspect', 'Inspect the cylinder and piston', 'Check the cylinder plating for scoring and aluminum transfer. Measure the bore and piston clearance.', 'Replace the cylinder if the plating is worn through.');
+  A('Inspect', 'Pressure-test the crankcase seals', 'Pressure-test the case and inspect the crank seals and intake boot. Air leaks cause lean running and seizures.', 'This test finds leaks that are invisible by eye.');
+  A('Inspect', 'Check the ignition and fuel system', 'Check the coil gap, flywheel key, spark screen and fuel lines. Replace cracked lines and diaphragms.', 'Ethanol fuel attacks old fuel lines.');
+  A('Inspect', 'Measure and order parts', 'Make a list: gaskets, seals, rings or piston, carburetor kit and ignition parts. Confirm by model and serial number.', 'Do not reuse a scored piston.');
+  A('Bag & store', 'Bag, label and store everything', 'Label bags by system and photograph the labeled bags. Coat bare machined surfaces with light oil.', 'Keep the case halves and fasteners together.');
+  A('Bag & store', 'Log what you found', 'Write down worn parts, damage and measurements while it is fresh.', 'Note the fuel mix ratio used in the machine.');
+  return st;
+}
 function rotarySteps(e, A, st) {
   A('Externals', 'Remove intake, throttle and exhaust', 'Label every vacuum line and sensor. Photograph the plumbing. Remove the turbo and exhaust if fitted.');
   A('Externals', 'Remove accessories and belt', 'Photograph belt routing first. Remove alternator, AC, power steering and the water pump.');
@@ -210,7 +283,45 @@ function rotarySteps(e, A, st) {
   return st;
 }
 
+function smallAngles(e) {
+  const f = e.flags, two = f.has('2s'), mower = /mower|tractor|zero-turn|golf|utility/i.test(e.apps);
+  const B = [
+    { key: 'front', title: 'Front overall', pos: 'front', how: 'Stand about 3 feet from the front. Keep the whole engine and any deck or pump in frame.' },
+    { key: 'left', title: 'Left side overall', pos: 'left', how: 'Step back so the full side is in frame. Keep the camera at mid-engine height.' },
+    { key: 'right', title: 'Right side overall', pos: 'right', how: 'Same distance and height as the left side so you can compare them.' },
+    { key: 'rear', title: 'Rear overall', pos: 'rear', how: 'Show the recoil starter, fuel tank and any shaft or pump drive.' },
+    { key: 'top', title: 'Top-down overall', pos: 'top', how: 'Stand over the engine and shoot straight down. Hold the phone parallel to the engine.' },
+    { key: 'tags', title: 'Model, type and serial numbers', pos: 'detail', how: 'Take a sharp close-up of every ID plate or sticker. These numbers decide which parts fit.' },
+    { key: 'controls', title: 'Throttle, choke and governor linkage', pos: 'detail', how: 'Photograph every spring, rod and cable connection from two angles before removing anything.' },
+    { key: 'fuel', title: 'Fuel tank and lines', pos: 'detail', how: 'Show the tank outlet, fuel valve, filter and every line to the carburetor.' },
+    { key: 'carb', title: 'Carburetor and intake', pos: 'detail', how: 'Photograph the carburetor from both sides, including the throttle plate, fuel inlet and breather hose.' },
+    { key: 'ignition', title: 'Coil, flywheel and kill wire', pos: 'detail', how: 'Show the ignition coil, flywheel, spark plug boot and kill wire routing.' },
+    { key: 'cooling', title: 'Cooling shrouds and fins', pos: 'top', how: 'Photograph the blower housing, screens and cylinder fins before cleaning.' },
+    { key: 'exhaust', title: 'Muffler and exhaust port', pos: 'detail', how: 'Show the muffler mounting, heat shield and exhaust port area.' },
+    { key: 'drive', title: 'Shaft, blade or attachment drive', pos: 'detail', how: 'Photograph the output shaft, blade hub, belt or pump connection before removing it.' },
+  ];
+  if (mower) B.push({ key: 'deck', title: 'Deck, blade and drive belt', pos: 'bottom', how: 'With the deck raised safely, photograph the blade, spindle and belt routing from below.' });
+  const D = two ? [
+    { key: 'cylinder', title: 'Cylinder and piston through the exhaust port', pos: 'detail', how: 'Photograph the piston skirt and cylinder wall before pulling the cylinder. Use raking light to show scoring.' },
+    { key: 'head', title: 'Combustion chamber and piston crown', pos: 'top', how: 'Show the combustion chamber, squish band and piston crown after the cylinder comes off.' },
+    { key: 'crank', title: 'Crankcase, crank and seals', pos: 'bottom', how: 'Photograph the crankcase interior, bearings, crank webs and seal seats before cleaning.' },
+    { key: 'seals', title: 'Crank seals and intake boot', pos: 'detail', how: 'Show both crank seals and the intake boot. These are the usual air-leak points.' },
+    { key: 'flykey', title: 'Flywheel key and coil gap', pos: 'detail', how: 'Photograph the keyway, flywheel key and coil mounting before reassembly.' },
+    { key: 'plug', title: 'Spark plug and screen', pos: 'detail', how: 'Show the plug color, spark screen and muffler outlet. Photograph the plug before cleaning it.' },
+  ] : [
+    { key: 'tdc', title: 'TDC and valve position', pos: 'top', how: 'Rotate the engine to top dead center and photograph the piston and valve positions before removing the head.' },
+    { key: 'gasket', title: 'Head gasket and deck', pos: 'top', how: 'Photograph the head gasket and deck surface as soon as the head comes off.' },
+    { key: 'valves', title: 'Valves and seats', pos: 'detail', how: 'Show both valves, seats and combustion chamber under bright light.' },
+    { key: 'bore', title: 'Cylinder bore', pos: 'top', how: 'Photograph the bore from above with raking light to show scoring, glazing or a ridge.' },
+    { key: 'piston', title: 'Piston and rings', pos: 'detail', how: 'Lay the piston out and photograph the crown, skirt, ring lands and rod.' },
+    { key: 'crank', title: 'Crank, rod and bearings', pos: 'detail', how: 'Photograph the crank journals, rod bearing and main bearing surfaces before cleaning.' },
+    { key: 'flykey', title: 'Flywheel key and coil gap', pos: 'detail', how: 'Show the flywheel key, keyway and coil mounting. A sheared key changes ignition timing.' },
+    { key: 'governor', title: 'Governor and linkage', pos: 'detail', how: 'Photograph the governor arm, spring and linkage routing before removing them.' },
+  ];
+  return { before: B, during: D };
+}
 function anglesFor(e) {
+  if (e.flags.has('sm')) return smallAngles(e);
   const f = e.flags, inj = ['efi', 'di', 'tbi'].includes(e.fuel), dsl = e.fuel === 'dsl', carb = e.fuel === 'carb', V = /^[VH]/.test(e.cfg);
   const B = [
     { key: 'front', title: 'Front overall', pos: 'front', how: 'Stand about 4 feet from the pulley end. Keep the whole engine in frame, straight on, with good light.' },
