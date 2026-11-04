@@ -16,6 +16,8 @@ Engine teardown companion for people who pull and take apart engines. Pick an en
 
 ## How it works
 - **Engines:** each entry records layout, valvetrain, timing drive, fuel, block material, boost and flags (distributor, interference, torque-to-yield head bolts, VVT, balance shafts, dry sump, cylinder deactivation, common rail, rotary). The app builds a tailored 30–36 step teardown and a set of photo angles from those fields. "My engine isn't listed" builds one from a few dropdowns.
+- **VIN decoder:** enter a 17-character VIN in the header or library. It uses the free NHTSA vPIC service online and falls back to VIN structure offline, then offers the closest library engine or a prefilled custom engine.
+- **Onboarding:** starting any project asks a short Discord-style set of questions — goal, symptoms, teardown depth and experience — and feeds those answers into the plan, the Teardown tab and the AI context.
 - **Photo walk-through:** a full-screen guide shows where to stand for each shot (front, both sides, rear, top, belt routing, hoses, harness, connectors, turbo plumbing, and so on), then a second set of checkpoints for during teardown (timing marks, valvetrain, pistons, cap markings). Photos are stored on the device in IndexedDB, can carry notes, and can be sent to the AI. A video walk-around is turned into 12 saved frames.
 - **Chat:** attach photos or a short video (8 frames are sent). "Check my photos with AI" sends up to 8 of your shots for a review of blurry or missing angles and notable damage.
 
