@@ -33,6 +33,31 @@ h1,h2,h3,.disp{font-family:var(--disp);text-transform:uppercase;letter-spacing:.
 /* header */
 .top{display:flex;align-items:center;gap:12px;padding:10px 16px}.top .lg{width:42px;height:42px;flex:none}.brand{min-width:0}.brand h1{font-size:23px;line-height:1;letter-spacing:.1em;white-space:nowrap}.brand span{display:block;font-size:11px;color:var(--mute);letter-spacing:.08em;text-transform:uppercase;margin-top:3px;white-space:nowrap}.top .grow{display:none}.brand{flex:1}.pill{flex:none}@media(max-width:430px){.brand span{display:none}.brand h1{font-size:20px;letter-spacing:.05em;overflow:hidden;text-overflow:ellipsis}.pill{max-width:104px;padding:0 12px}}.grow{flex:1}
 .pill{min-height:44px;max-width:170px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.045);font-weight:600;font-size:14px;display:inline-flex;align-items:center;gap:7px;transition:transform .15s,border-color .2s}.pill span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.pill:active,.btn:active,.chipb:active{transform:scale(.96)}.pill:hover{border-color:rgba(255,162,56,.45)}
+/* project bar */
+.projbar{display:flex;align-items:center;gap:12px;margin:4px 16px 8px;padding:11px 13px;min-height:66px;border:1px solid rgba(255,162,56,.3);border-radius:17px;background:linear-gradient(135deg,rgba(255,162,56,.14),rgba(20,22,26,.92) 56%,rgba(20,22,26,.92));color:var(--text);text-align:left;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 12px 28px -22px #000;transition:transform .15s,border-color .2s,background .2s;width:calc(100% - 32px)}
+.projbar:hover{border-color:rgba(255,162,56,.6)}.projbar:active{transform:scale(.99)}
+.projbar .pbi{width:44px;height:44px;border-radius:13px;background:rgba(255,162,56,.14);color:var(--am);display:grid;place-items:center;flex:none;box-shadow:inset 0 0 0 1px rgba(255,162,56,.22)}
+.projbar .pbt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.projbar .pbl{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--am);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.projbar .pbn{font-family:var(--disp);font-size:23px;line-height:1.02;letter-spacing:.025em;font-weight:600;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.projbar .pbs{font-size:12.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.projbar .pbc{color:var(--mute);flex:none;display:grid;place-items:center}
+.projbar.empty{border-style:dashed;background:rgba(255,255,255,.025);box-shadow:none}.projbar.empty .pbi{background:rgba(255,255,255,.06);color:var(--text);box-shadow:inset 0 0 0 1px var(--line)}.projbar.empty .pbl{color:var(--mute)}
+/* projects sheet */
+.phead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px}.phead h2{margin:0}.phead .mut{margin-top:2px}
+.plist{display:grid;gap:10px}
+.pcard{background:linear-gradient(180deg,#181b20,#121418);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.pcard.on{border-color:rgba(255,162,56,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 0 1px rgba(255,162,56,.12)}
+.pmain{display:block;width:100%;text-align:left;background:none;border:0;padding:14px 14px 9px;color:inherit}
+.pbadge{display:inline-flex;align-items:center;gap:5px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);font-weight:700}
+.pcard.on .pbadge{color:var(--am)}
+.pname{display:block;font:600 23px/1.05 var(--disp);letter-spacing:.025em;text-transform:uppercase;margin:4px 0 2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pmeta{display:block;color:var(--mute);font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pprog{display:block;height:3px;border-radius:999px;background:rgba(255,255,255,.08);margin-top:10px;overflow:hidden}.pprog i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--am2),var(--am))}
+.pfoot{display:flex;padding:0 14px 14px}.pdel{width:100%}
+.pempty{text-align:center;padding:26px 16px;border:1px dashed var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.pemptyi{width:52px;height:52px;border-radius:16px;background:rgba(255,162,56,.12);color:var(--am);display:grid;place-items:center;margin:0 auto 10px}.pempty h3{font-size:24px;margin:0 0 4px}
+@media(max-width:430px){.projbar{margin:2px 12px 7px;width:calc(100% - 24px);padding:10px 11px;gap:10px;min-height:62px}.projbar .pbi{width:40px;height:40px}.projbar .pbn{font-size:21px}}
 #off{background:var(--am);color:#1c1004;font-size:14px;font-weight:600;padding:6px 16px}
 .pane{display:none;flex:1;min-height:0;flex-direction:column}.pane.on{display:flex;animation:pin .32s var(--ease) both}@keyframes pin{from{opacity:0;transform:translateY(10px)}}
 .scroll{overflow-y:auto;padding:4px 16px 20px;flex:1}
@@ -41,6 +66,28 @@ h3{font-size:19px;margin-bottom:8px}.mut{color:var(--mute);font-size:14px}.hint{
 .btn{min-height:50px;padding:0 18px;border-radius:14px;border:1px solid var(--line);background:var(--panel2);font-weight:600;font-size:15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s,filter .2s;text-decoration:none}
 .btn.pri{background:linear-gradient(180deg,#ffbe6b,#f08a22);color:#1c1004;border-color:transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 8px 22px -8px rgba(255,162,56,.55)}.btn.sm{min-height:42px;padding:0 14px;font-size:14px}.btn.wide{width:100%}.btn:disabled{opacity:.45}
 .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* HoldButton - adapted from React Bits for the vanilla app */
+.hold-button{--hb-radius:14px;--hb-bg:#27272a;--hb-fill:#5227ff;--hb-text:#f5f5f5;--hb-fill-text:#fff;--hb-hold:2000ms;--hb-release:200ms;--hb-press:.97;--hb-wave:6px;--hb-w:0px;--hb-h:0px;--hb-cycles:2;--hb-p:0;--hb-ease-out:cubic-bezier(.23,1,.32,1);--hb-shadow:inset 0 1px 0 rgba(255,255,255,.06);--hb-glow:inset 0 1px 0 rgba(255,255,255,.06),0 10px 32px -6px color-mix(in srgb,var(--hb-fill) 70%,transparent);position:relative;display:inline-grid;place-items:center;isolation:isolate;margin:0;border:0;border-radius:var(--hb-radius);background:var(--hb-bg);color:var(--hb-text);font-family:inherit;font-weight:500;letter-spacing:.01em;line-height:1;box-shadow:var(--hb-shadow);cursor:pointer;outline:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:transform 160ms var(--hb-ease-out),background-color 160ms ease,box-shadow var(--hb-release) var(--hb-ease-out)}
+.hold-button--sm{height:36px;padding:0 16px;font-size:13px}.hold-button--md{height:44px;padding:0 22px;font-size:15px}.hold-button--lg{height:52px;padding:0 28px;font-size:17px}
+@media(hover:hover) and (pointer:fine){.hold-button:not(:disabled):hover{background:color-mix(in srgb,var(--hb-bg) 92%,#fff)}}
+.hold-button[data-phase='holding'][data-input='pointer']{transform:scale(var(--hb-press))}
+.hold-button[data-glow='true'][data-phase='holding'],.hold-button[data-glow='true'][data-phase='done']{box-shadow:var(--hb-glow)}
+.hold-button[data-glow='true'][data-phase='holding']{transition:transform 160ms var(--hb-ease-out),background-color 160ms ease,box-shadow var(--hb-hold) linear}
+.hold-button:focus-visible{outline:2px solid var(--hb-fill);outline-offset:3px}.hold-button:disabled{opacity:.5;cursor:default;pointer-events:none}
+.hold-button__pulse{position:absolute;inset:0;z-index:0;border-radius:var(--hb-radius);pointer-events:none;opacity:0}
+.hold-button[data-glow='true'][data-phase='done'] .hold-button__pulse{animation:hb-pulse 600ms var(--hb-ease-out) forwards}
+@keyframes hb-pulse{from{opacity:1;box-shadow:0 0 0 0 color-mix(in srgb,var(--hb-fill) 55%,transparent)}to{opacity:0;box-shadow:0 0 0 14px color-mix(in srgb,var(--hb-fill) 0%,transparent)}}
+.hold-button__label{position:relative;z-index:2;display:grid;place-items:center}.hold-button__label>span{grid-area:1/1;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:opacity 200ms ease,filter 200ms ease}
+.hold-button__icon{display:inline-flex;flex:none}.hold-button__icon>svg{display:block;width:17px;height:17px}
+.hold-button__done{opacity:0;filter:blur(2px)}.hold-button[data-phase='done'] .hold-button__idle{opacity:0;filter:blur(2px)}.hold-button[data-phase='done'] .hold-button__done{opacity:1;filter:blur(0)}
+.hold-button__clip{position:absolute;inset:0;z-index:3;clip-path:inset(0 round var(--hb-radius));pointer-events:none}
+.hold-button__fill{position:absolute;inset:0;display:grid;place-items:center;background:var(--hb-fill);color:var(--hb-fill-text);clip-path:inset(0 calc((1 - var(--hb-p)) * (100% + .75 * var(--hb-wave)) - var(--hb-p) * .25 * var(--hb-wave)) 0 0)}
+.hold-button[data-direction='up'] .hold-button__fill{clip-path:inset(calc((1 - var(--hb-p)) * (100% + .75 * var(--hb-wave)) - var(--hb-p) * .25 * var(--hb-wave)) 0 0 0)}
+.hold-button__crest{position:absolute;inset:0;display:grid;place-items:center;background:var(--hb-fill);color:var(--hb-fill-text);-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='200' viewBox='0 0 20 200' preserveAspectRatio='none'%3E%3Cpath d='M0 0H10C18 8 18 25.3 10 33.3S2 58.7 10 66.7S18 92 10 100S2 125.3 10 133.3S18 158.7 10 166.7S2 192 10 200H0Z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='200' viewBox='0 0 20 200' preserveAspectRatio='none'%3E%3Cpath d='M0 0H10C18 8 18 25.3 10 33.3S2 58.7 10 66.7S18 92 10 100S2 125.3 10 133.3S18 158.7 10 166.7S2 192 10 200H0Z'/%3E%3C/svg%3E");-webkit-mask-repeat:repeat-y;mask-repeat:repeat-y;-webkit-mask-size:var(--hb-wave) calc(var(--hb-h) * 2);mask-size:var(--hb-wave) calc(var(--hb-h) * 2);-webkit-mask-position-x:calc(-1 * var(--hb-wave) + var(--hb-p) * (var(--hb-w) + var(--hb-wave)));mask-position-x:calc(-1 * var(--hb-wave) + var(--hb-p) * (var(--hb-w) + var(--hb-wave)));-webkit-mask-position-y:calc(-1 * var(--hb-p) * var(--hb-cycles) * var(--hb-h));mask-position-y:calc(-1 * var(--hb-p) * var(--hb-cycles) * var(--hb-h))}
+.hold-button[data-direction='up'] .hold-button__crest{-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='20' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 20V10C12 2 38 2 50 10S88 18 100 10S138 2 150 10S188 18 200 10V20Z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='20' viewBox='0 0 200 20' preserveAspectRatio='none'%3E%3Cpath d='M0 20V10C12 2 38 2 50 10S88 18 100 10S138 2 150 10S188 18 200 10V20Z'/%3E%3C/svg%3E");-webkit-mask-repeat:repeat-x;mask-repeat:repeat-x;-webkit-mask-size:calc(var(--hb-w) * 2) var(--hb-wave);mask-size:calc(var(--hb-w) * 2) var(--hb-wave);-webkit-mask-position-x:calc(-1 * var(--hb-p) * var(--hb-cycles) * var(--hb-w));mask-position-x:calc(-1 * var(--hb-p) * var(--hb-cycles) * var(--hb-w));-webkit-mask-position-y:calc(var(--hb-h) - var(--hb-p) * (var(--hb-h) + var(--hb-wave)));mask-position-y:calc(var(--hb-h) - var(--hb-p) * (var(--hb-h) + var(--hb-wave)))}
+.hold-button__label--fill{z-index:auto}.hold-button__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(prefers-contrast:more){.hold-button{outline:1px solid var(--hb-text)}}
+@media(prefers-reduced-motion:reduce){.hold-button{transition:background-color 160ms ease,box-shadow var(--hb-release) ease;transform:none!important}.hold-button__fill,.hold-button[data-direction='up'] .hold-button__fill{clip-path:inset(0);opacity:0;transition:opacity var(--hb-release) ease}.hold-button__crest{display:none}.hold-button[data-phase='holding'] .hold-button__fill,.hold-button[data-phase='done'] .hold-button__fill{opacity:1;transition:opacity var(--hb-hold) linear}.hold-button__pulse{animation:none!important}.hold-button__label>span{transition:opacity 200ms ease;filter:none!important}}
 .f{background:#0e1013;border:1px solid var(--line);border-radius:12px;min-height:50px;padding:0 14px;font-size:16px;width:100%;transition:border-color .2s,box-shadow .2s}.f:focus{outline:0;border-color:var(--am);box-shadow:0 0 0 3px rgba(255,162,56,.16)}textarea.f{padding:12px 14px;resize:vertical;min-height:90px;line-height:1.45}select.f{appearance:none}
 .lab{display:block;font-size:13px;color:var(--mute);margin:12px 0 5px;letter-spacing:.04em;text-transform:uppercase}
 .chipb{min-height:42px;padding:0 15px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-weight:600;font-size:14px;white-space:nowrap;display:inline-flex;align-items:center;gap:7px;transition:all .2s}.chipb.on{background:var(--am);color:#1c1004;border-color:var(--am)}
@@ -137,7 +184,8 @@ h3{font-size:19px;margin-bottom:8px}.mut{color:var(--mute);font-size:14px}.hint{
 <body>
 <div id="splash"><div class="lg"></div><h2>Block Builder</h2><p>Engine teardown companion</p><div class="ld"></div></div>
 <div class="app">
-<header class="top"><div class="lg" id="hlogo"></div><div class="brand"><h1>Block Builder</h1><span>Engine teardown companion</span></div><span class="grow"></span><button class="pill iconpill" id="vinbtn" aria-label="Decode a VIN"></button><button class="pill" id="projbtn"></button></header>
+<header class="top"><div class="lg" id="hlogo"></div><div class="brand"><h1>Block Builder</h1><span>Engine teardown companion</span></div><span class="grow"></span><button class="pill iconpill" id="vinbtn" aria-label="Decode a VIN"></button></header>
+<button class="projbar" id="projbtn" aria-label="Open projects"></button>
 <div id="off" hidden>Offline: engines, steps and photos work. Chat needs a connection.</div>
 
 <section class="pane on" id="p-lib">
@@ -500,11 +548,80 @@ function finishOnboarding(){
 $('#onb').onclick=e=>{if(e.target.id==='onb')closeOnb()};
 
 /* ---------- projects ---------- */
-function renderProjBtn(){const p=curProj();$('#projbtn').innerHTML=ic('stack')+`<span>${p?esc(p.name):'No project'}</span>`}
-$('#projbtn').onclick=()=>{openSheet(`<h2>Projects</h2>${S.projects.length?'':'<p class="mut">No projects yet. Pick an engine to start one.</p>'}`+S.projects.map(p=>`<div class="row" style="margin:8px 0"><button class="btn" data-p="${p.id}" style="flex:1;justify-content:flex-start;${p.id===S.active?'border-color:#ffa238':''}">${esc(p.name)}</button><button class="btn sm" data-d="${p.id}" aria-label="Delete">${ic('trash')}</button></div>`).join('')+'<button class="btn pri wide" id="pnew" style="margin-top:10px">Pick an engine for a new project</button><button class="btn wide" id="installopt" style="margin-top:8px">'+ic('download')+'Install app</button><button class="btn wide" id="changelogopt" style="margin-top:8px">'+ic('list')+'What&rsquo;s new</button>');
+function renderProjBtn(){
+  const p=curProj(),el=$('#projbtn');
+  if(!p){
+    el.classList.add('empty');
+    el.setAttribute('aria-label','Start a project');
+    el.innerHTML=`<span class="pbi">${ic('plus')}</span><span class="pbt"><span class="pbl">Start here</span><span class="pbn">Start a project</span><span class="pbs">Pick an engine and build a teardown plan</span></span><span class="pbc">${ic('chev')}</span>`;
+    return;
+  }
+  const e=engOf(p),st=stepsFor(e),done=st.filter((_,i)=>p.checks[i]).length,count=S.projects.length;
+  el.classList.remove('empty');
+  el.setAttribute('aria-label',`Open projects. Current project ${p.name}`);
+  el.innerHTML=`<span class="pbi">${ic('stack')}</span><span class="pbt"><span class="pbl">Current build · ${count} project${count===1?'':'s'}</span><span class="pbn">${esc(p.name)}</span><span class="pbs">${esc(e.title||'Custom engine')} · ${done}/${st.length} steps</span></span><span class="pbc">${ic('chev')}</span>`;
+}
+
+function holdDeleteHTML(id){
+  const hint='hbh-'+String(id).replace(/[^a-z0-9_-]/gi,'');
+  const labels=`<span class="hold-button__idle" aria-hidden="false"><span class="hold-button__icon">${ic('trash')}</span>Hold to delete</span><span class="hold-button__done" aria-hidden="true"><span class="hold-button__icon">${ic('check')}</span>Deleted</span>`;
+  return `<button type="button" class="hold-button hold-button--sm pdel" data-del="${esc(id)}" data-phase="idle" data-direction="right" data-glow="true" aria-describedby="${hint}" style="--hb-radius:12px;--hb-bg:#211c1d;--hb-fill:#ff5b4a;--hb-text:#ffb4aa;--hb-fill-text:#fff;--hb-hold:1200ms;--hb-cycles:1.09;--hb-release:200ms;--hb-press:.97;--hb-wave:5px"><span class="hold-button__pulse" aria-hidden="true"></span><span class="hold-button__label">${labels}</span><span class="hold-button__clip" aria-hidden="true"><span class="hold-button__fill"><span class="hold-button__label hold-button__label--fill">${labels}</span></span><span class="hold-button__crest"><span class="hold-button__label hold-button__label--fill">${labels}</span></span></span><span id="${hint}" class="hold-button__sr">Press and hold for 1.2 seconds to delete this project and its photos.</span></button>`;
+}
+
+const HB_LINEAR=t=>t,HB_EASE_OUT=t=>1-Math.pow(1-t,3),HB_HIT_PAD=10;
+function wireHoldButton(btn,{holdTime=1200,releaseTime=200,resetAfter=900,onHold}={}){
+  const idle=btn.querySelector('.hold-button__label .hold-button__idle'),done=btn.querySelector('.hold-button__label .hold-button__done');
+  let phase='idle',input=null,raf=0,p=0,from=0,to=0,started=0,completeTimer=0,resetTimer=0,globalBound=false;
+  const gesture={pointerId:null,start:0,rect:null};
+  const setPhase=(next,kind=null)=>{phase=next;input=kind;btn.dataset.phase=next;if(kind)btn.dataset.input=kind;else delete btn.dataset.input;idle?.setAttribute('aria-hidden',next==='done'?'true':'false');done?.setAttribute('aria-hidden',next==='done'?'false':'true')};
+  const clearTimers=()=>{clearTimeout(completeTimer);clearTimeout(resetTimer)};
+  const measure=()=>{btn.style.setProperty('--hb-w',btn.offsetWidth+'px');btn.style.setProperty('--hb-h',btn.offsetHeight+'px')};
+  const release=({drifted=false}={})=>{if(phase!=='holding')return;clearTimers();unbindGlobal();setPhase('idle');drive(0,releaseTime,HB_EASE_OUT)};
+  const cancelHold=()=>{if(phase==='holding')release({drifted:true})};
+  const onVisibility=()=>{if(document.hidden)cancelHold()};
+  const bindGlobal=()=>{if(globalBound)return;globalBound=true;window.addEventListener('blur',cancelHold);document.addEventListener('visibilitychange',onVisibility)};
+  const unbindGlobal=()=>{if(!globalBound)return;globalBound=false;window.removeEventListener('blur',cancelHold);document.removeEventListener('visibilitychange',onVisibility)};
+  const complete=()=>{if(phase!=='holding')return;if(performance.now()-gesture.start<holdTime-50)return;clearTimers();unbindGlobal();setPhase('done',input);if(navigator.vibrate)navigator.vibrate(25);onHold?.();if(resetAfter>0)resetTimer=setTimeout(()=>{setPhase('idle');drive(0,releaseTime,HB_EASE_OUT)},resetAfter)};
+  function drive(target,duration,ease){
+    cancelAnimationFrame(raf);from=p;to=target;started=performance.now();
+    const step=now=>{const t=duration>0?Math.min(1,(now-started)/duration):1;p=from+(to-from)*ease(t);btn.style.setProperty('--hb-p',p.toFixed(4));if(t<1){raf=requestAnimationFrame(step);return}raf=0;if(to===1)complete()};
+    raf=requestAnimationFrame(step);
+  }
+  const begin=kind=>{if(btn.disabled||phase!=='idle')return false;measure();gesture.start=performance.now();gesture.rect=btn.getBoundingClientRect();setPhase('holding',kind);bindGlobal();drive(1,holdTime,HB_LINEAR);completeTimer=setTimeout(complete,holdTime+100);return true};
+  const endPointer=(e,options)=>{if(e.pointerId!==gesture.pointerId)return;gesture.pointerId=null;try{if(btn.hasPointerCapture(e.pointerId))btn.releasePointerCapture(e.pointerId)}catch{}release(options)};
+  btn.addEventListener('pointerdown',e=>{if(e.button!==0||!e.isPrimary||gesture.pointerId!==null)return;if(!begin('pointer'))return;gesture.pointerId=e.pointerId;try{btn.setPointerCapture(e.pointerId)}catch{}});
+  btn.addEventListener('pointermove',e=>{if(e.pointerId!==gesture.pointerId)return;const r=gesture.rect;if(!r)return;if(e.clientX<r.left-HB_HIT_PAD||e.clientX>r.right+HB_HIT_PAD||e.clientY<r.top-HB_HIT_PAD||e.clientY>r.bottom+HB_HIT_PAD)endPointer(e,{drifted:true})});
+  btn.addEventListener('pointerup',e=>endPointer(e));
+  btn.addEventListener('pointercancel',e=>endPointer(e,{drifted:true}));
+  btn.addEventListener('lostpointercapture',e=>endPointer(e,{drifted:true}));
+  btn.addEventListener('pointerleave',e=>{if(e.pointerType!=='touch')endPointer(e,{drifted:true})});
+  btn.addEventListener('keydown',e=>{if(e.key==='Escape'){if(input==='key')release({drifted:true});return}if(e.key===' '||e.key==='Enter'){e.preventDefault();if(!e.repeat)begin('key')}});
+  btn.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();if(input==='key')release()}});
+  btn.addEventListener('contextmenu',e=>e.preventDefault());
+}
+
+async function deleteProject(id){
+  if(!S.projects.some(p=>p.id===id))return;
+  for(const x of ((await dbx('readonly',s=>s.getAll()))||[]).filter(x=>x.pid===id))await dbx('readwrite',s=>s.delete(x.id));
+  S.projects=S.projects.filter(p=>p.id!==id);
+  if(S.active===id)S.active=S.projects[0]?.id||null;
+  save();closeSheet();await loadPhotos();renderAll();toast('Project deleted');
+}
+
+$('#projbtn').onclick=()=>{
+  const count=S.projects.length;
+  const cards=S.projects.map(p=>{
+    const e=engOf(p),st=stepsFor(e),done=st.filter((_,i)=>p.checks[i]).length,pct=st.length?Math.round(done/st.length*100):0;
+    return `<article class="pcard${p.id===S.active?' on':''}"><button class="pmain" data-p="${p.id}"><span class="pbadge">${p.id===S.active?'Active project':'Open project'}</span><span class="pname">${esc(p.name)}</span><span class="pmeta">${esc(e.title||'Custom engine')} · ${done}/${st.length} steps</span><span class="pprog"><i style="width:${pct}%"></i></span></button><div class="pfoot">${holdDeleteHTML(p.id)}</div></article>`;
+  }).join('');
+  openSheet(`<div class="phead"><div><h2>Projects</h2><p class="mut">${count?`${count} build${count===1?'':'s'} on this device`:'Builds stay on this device'}</p></div><button class="btn pri sm" id="pnew">${ic('plus')}New</button></div>${count?`<div class="plist">${cards}</div>`:`<div class="pempty"><div class="pemptyi">${ic('stack')}</div><h3>No projects yet</h3><p class="mut">Start with an engine and Block Builder will build the teardown plan.</p></div>`}${count?`<button class="btn pri wide" id="pnew2" style="margin-top:10px">${ic('plus')}Pick an engine for a new project</button>`:''}<div class="row" style="margin-top:8px"><button class="btn wide" id="installopt" style="flex:1">${ic('download')}Install app</button><button class="btn wide" id="changelogopt" style="flex:1">${ic('list')}What&rsquo;s new</button></div>`);
   $$('#shc [data-p]').forEach(b=>b.onclick=async()=>{S.active=b.dataset.p;save();closeSheet();PH=[];renderAll();loadPhotos()});
-  $$('#shc [data-d]').forEach(b=>b.onclick=async()=>{if(!(await showDialog({title:'Delete project?',message:'This removes the project and all of its photos from this device.',confirm:'Delete',cancel:'Keep',danger:true,icon:'trash'})))return;const id=b.dataset.d;for(const x of ((await dbx('readonly',s=>s.getAll()))||[]).filter(x=>x.pid===id))await dbx('readwrite',s=>s.delete(x.id));S.projects=S.projects.filter(p=>p.id!==id);if(S.active===id)S.active=S.projects[0]?.id||null;save();closeSheet();await loadPhotos();renderAll()});
-  $('#pnew').onclick=()=>{closeSheet();go('lib')};$('#installopt').onclick=()=>promptInstall();$('#changelogopt').onclick=()=>window.open('/changelog.html','_blank','noopener')};
+  $$('#shc .pdel').forEach(b=>wireHoldButton(b,{holdTime:1200,resetAfter:900,onHold:()=>setTimeout(()=>deleteProject(b.dataset.del),650)}));
+  $('#pnew').onclick=()=>{closeSheet();go('lib')};
+  $('#pnew2')?.addEventListener('click',()=>{closeSheet();go('lib')});
+  $('#installopt').onclick=()=>promptInstall();
+  $('#changelogopt').onclick=()=>window.open('/changelog.html','_blank','noopener');
+};
 
 /* ---------- teardown steps ---------- */
 let openStep=-1;

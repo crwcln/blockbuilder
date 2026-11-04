@@ -1,5 +1,5 @@
 // App-shell cache so engines, steps and photos work in the garage with no signal.
-const C = 'bb-v8';
+const C = 'bb-v9';
 const ASSETS = ['/', '/index.html', '/engines.js', '/step-images.js', '/credits.html', '/changelog.html', '/manifest.webmanifest', '/favicon.svg', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/apple-touch-icon.png', '/img/parts/photo.jpg', '/img/parts/workspace.jpg', '/img/parts/fluids.jpg', '/img/parts/electrical.jpg', '/img/parts/stand.jpg', '/img/parts/intake.jpg', '/img/parts/fuel.jpg', '/img/parts/exhaust.jpg', '/img/parts/belt.jpg', '/img/parts/flywheel.jpg', '/img/parts/timing.jpg', '/img/parts/valvetrain.jpg', '/img/parts/head.jpg', '/img/parts/plugs.jpg', '/img/parts/bottom.jpg', '/img/parts/measure.jpg', '/img/parts/clean.jpg', '/img/parts/small.jpg', '/img/parts/two.jpg', '/img/parts/rotary.jpg', '/img/parts/general.jpg'];
 const put = (req, res) => res && res.ok ? caches.open(C).then(c => c.put(req, res)).catch(() => 0) : Promise.resolve();
 

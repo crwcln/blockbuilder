@@ -1,5 +1,11 @@
 # Changelog
 
+## v9 - 2026-11-04
+- Added a prominent current-project bar under the header with project name, engine and step progress.
+- Redesigned the Projects sheet with active-project cards, progress bars and clearer new-project actions.
+- Replaced the project delete confirmation with a hold-to-delete button adapted from the React Bits HoldButton component.
+- Bumped the service-worker cache to `bb-v9`.
+
 ## v8 - 2026-11-04
 - Replaced the generic SVG teardown illustrations with 21 generic reference photos covering each part category.
 - Added `credits.html` with source, author and license for every reference image.
