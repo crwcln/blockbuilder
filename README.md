@@ -34,6 +34,8 @@ To use licensed per-engine or family photos, add URLs to `ENGINE_STEP_PHOTOS` in
 
 Example: `'chevrolet-small-block-350-gen-i-carbureted|0': '/img/engines/sbc-350/01.jpg'`. Without an override, the built-in illustration is used.
 
+Briggs & Stratton engines also show links to the official Briggs manuals/parts-list lookup and model-number locator. Enter the engine's model-type number on those pages to view the exact factory illustrated parts list. The app links to these pages but does not copy or host the OEM diagrams.
+
 ## Notes
 - The database holds engine facts, notes and known failure points. It deliberately has **no torque specs, clearances or firing orders**. Always confirm those in the factory service manual for the exact engine. The AI is told to do the same.
 - Photos and projects live in this browser. Clearing site data erases them.
